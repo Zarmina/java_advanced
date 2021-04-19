@@ -2,13 +2,13 @@ package nl.inholland.carshowroom.model;
 
 public class Car {
 
-    private int id;
+    private long id;
     private String company;
     private String color;
     private double price;
     private String model;
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 

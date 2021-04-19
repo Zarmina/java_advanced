@@ -26,7 +26,7 @@ public class CarController {
     //get single car with id
     @GetMapping("/cars/{carId}")
     public Car getCar(@PathVariable String carId){
-        return this.service.getCar(Integer.parseInt(carId));
+        return this.service.getCar(Long.parseLong(carId));
     }
 
     //add new car to the list
@@ -45,10 +45,10 @@ public class CarController {
     @DeleteMapping("/cars/{carId}")
     public ResponseEntity<HttpStatus> deleteCourse(@PathVariable String carId){
         try {
-            this.service.deleteCourse(Integer.parseInt(carId));
-            return new ResponseEntity<HttpStatus>(HttpStatus.OK);
+            this.service.deleteCourse(Long.parseLong(carId));
+            return new ResponseEntity<HttpStatus>(HttpStatus.NO_CONTENT);
         }catch (Exception e){
-            return new ResponseEntity<HttpStatus>(HttpStatus.INTERNAL_SERVER_ERROR);
+            return new ResponseEntity<HttpStatus>(HttpStatus.NOT_FOUND);
         }
     }
 }

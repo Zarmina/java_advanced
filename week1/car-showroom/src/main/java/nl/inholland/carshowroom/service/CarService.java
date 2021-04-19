@@ -29,7 +29,7 @@ public class CarService {
     public List<Car> getCars() {
         return carslist;
     }
-    public Car getCar(int carId) {
+    public Car getCar(long carId) {
         Car c = null;
         for (Car car:carslist) {
             if (car.getId() == carId) {
@@ -56,7 +56,7 @@ public class CarService {
         return newCar;
     }
 
-    public void deleteCourse(int carId){
+    public void deleteCourse(long carId){
         carslist = this.carslist.stream().filter(e->e.getId()!=carId).collect(Collectors.toList());
     }
 }
