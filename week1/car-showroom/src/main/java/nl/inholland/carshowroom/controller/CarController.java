@@ -19,26 +19,26 @@ public class CarController {
 
     //get list of cars
     @GetMapping(value = "/cars", produces = MediaType.APPLICATION_JSON_VALUE)
-    public List<Car> getCars() {
-        return this.service.getCars();
+    public ResponseEntity<List<Car>> getCars() {
+        return  ResponseEntity.status(200).body(this.service.getCars());
     }
 
     //get single car with id
     @GetMapping("/cars/{carId}")
-    public Car getCar(@PathVariable String carId){
-        return this.service.getCar(Long.parseLong(carId));
+    public ResponseEntity<Car> getCar(@PathVariable String carId){
+        return  ResponseEntity.status(200).body(this.service.getCar(Long.parseLong(carId)));
     }
 
-    //add new car to the list
+    //add/create new car to the list
     @PostMapping("/cars")
-    public Car addCar(@RequestBody Car car){
-        return this.service.addCar(car);
+    public ResponseEntity<Car> addCar(@RequestBody Car car){
+        return  ResponseEntity.status(201).body(this.service.addCar(car));
     }
 
     //update the car
     @PutMapping("/cars")
-    public Car updateCar(@RequestBody Car newCar){
-        return this.service.updateCar(newCar);
+    public ResponseEntity<Car> updateCar(@RequestBody Car newCar){
+        return  ResponseEntity.status(202).body(this.service.updateCar(newCar));
     }
 
     //delete the car
